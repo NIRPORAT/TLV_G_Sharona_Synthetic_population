@@ -5,19 +5,19 @@ import math
 
 
 data = {
-  "married_household / house 2+ people": 0.45,
-  "family household": 0.38,
+  "married_household / house 2+ people": 0.47,
+  "family household": 0.38,  # not use
   "household with chd": 0.106,
   "household with 65+": 0.082,
-  "household with 65+ with 1 person": 0.481,
+  "household with 65+ with 1 person": 0.481,  # not use
   "1 people per household": 0.526,
   "2 people per household": 0.817,
   "3 people per household": 0.88,
   "4 people per household": 0.962,
   "5 people per household": 1,
-  "1 childs": 0.476,
-  "2 childs": 0.819,
-  "3 childs": 1,
+  "1 childs": 0.050456,
+  "2 childs": 0.086814,
+  "3 childs": 0.106,
   "employed percent": 0.786,
   "travel to work by car": 0.4,
   "travel to work by public trans": 0.592,
@@ -89,8 +89,8 @@ def make_data():
 
         def get_employed_num(adults_num, rand_emp_value):
             if rand_emp_value > data["household with 65+"]:
-                adt = adults_num * data["employed percent"]
-                return math.ceil(adt)
+                adt_emp = adults_num * data["employed percent"]
+                return math.ceil(adt_emp)
             else:
                 return random.randint(0, adults_num)
 
